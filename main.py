@@ -6,7 +6,10 @@ import time
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the API!"}
+    
 app.add_middleware(  # allow cors like delete put etc from frontend
     CORSMiddleware,
     allow_origins=["*"],  # all origins
